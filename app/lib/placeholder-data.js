@@ -7,14 +7,6 @@ const users = [
     email: 'user@nextmail.com',
     password: '123456',
   },
-
-  {
-    id: 'f39cde98-0989-413f-b843-39b6154acbe4',
-    name: 'User',
-    email: 'user@gmail.com',
-    password: '123456',
-  },
-
 ];
 
 // INSERT INTO users (id, name, email, password) VALUES (uuid_generate_v4(), 'New User', 'test@gmail.com', '123456');
