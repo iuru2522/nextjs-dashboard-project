@@ -13,7 +13,7 @@ const users = [
 // INSERT INTO users (id, name, email, password) VALUES (uuid_generate_v4(), 'User', 'test@gmail.com', crypt('123456', gen_salt('bf')));
 
 
-// INSERT INTO users (id, name, email, password) VALUES (uuid_generate_v4(), 'User', 'test@gmail.com', crypt('123456', gen_salt('bf')));
+// INSERT INTO users (id, name, email, password) VALUES (uuid_generate_v4(), 'New User', 'new_user@gmail.com', crypt('123456', gen_salt('bf')));
 
 
 const customers = [

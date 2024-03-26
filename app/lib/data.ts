@@ -251,6 +251,7 @@ export async function getUser(email: string) {
 
 //new 
 export async function getUsers() {
+  noStore();
   try {
     const users = await sql`SELECT * FROM users`;
     return users.rows as User[];
