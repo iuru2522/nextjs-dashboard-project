@@ -91,3 +91,13 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+
+export type BlogPost = {
+  id: string;
+  title: string;
+  content: string;
+  author: string;
+  date: Date;
+  image_url: string;
+};

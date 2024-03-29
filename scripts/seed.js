@@ -4,6 +4,7 @@ const {
   customers,
   revenue,
   users,
+  seedBlogPost,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
@@ -160,6 +161,47 @@ async function seedRevenue(client) {
   }
 }
 
+async function seedBlogPost(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+    // Create the "blog_posts" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS blog_posts (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        content TEXT NOT NULL,
+        author VARCHAR(255) NOT NULL,
+        date DATE NOT NULL,
+        image_url VARCHAR(255) NOT NULL
+      );
+    `;
+
+    console.log(`Created "blog_posts" table`);
+
+    // Insert data into the "blog_posts" table
+    const insertedBlogPosts = await Promise.all(
+      blogPosts.map(
+        (post) => client.sql`
+        INSERT INTO blog_posts (id, title, content, author, date, image_url)
+        VALUES (${post.id}, ${post.title}, ${post.content}, ${post.author}, ${post.date}, ${post.image_url})
+        ON CONFLICT (id) DO NOTHING;
+      `,
+      ),
+    );
+
+    console.log(`Seeded ${insertedBlogPosts.length} blog posts`);
+
+    return {
+      createTable,
+      blogPosts: insertedBlogPosts,
+    };
+  } catch (error) {
+    console.error('Error seeding blog posts:', error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
 
@@ -167,6 +209,7 @@ async function main() {
   await seedCustomers(client);
   await seedInvoices(client);
   await seedRevenue(client);
+  await seedBlogPost(client);
 
   await client.end();
 }

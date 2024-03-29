@@ -7,6 +7,7 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  BlogPost,
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
@@ -258,5 +259,42 @@ export async function getUsers() {
   } catch (error) {
     console.error('Failed to fetch users:', error);
     throw new Error('Failed to fetch users.');
+  }
+}
+export async function fetchBlogPostById(id: string){
+  noStore();
+ 
+  try {
+    const data = await sql<BlogPost>`
+      SELECT
+        blog_posts.id,
+        blog_posts.title,
+        blog_posts.content,
+        blog_posts.author,
+        blog_posts.date,
+        blog_posts.image_url
+      FROM blog_posts
+      WHERE blog_posts.id = ${id};
+    `;
+
+    console.log(data.rows); // Check the data received from the database
+    return data.rows[0]; // Return the first row directly
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch blog post.');
+  }
+}
+
+
+
+//new
+export async function getBlogPosts() {
+  noStore();
+  try {
+    const blogs = await sql`SELECT * FROM blog_posts`;
+    return blogs.rows as BlogPost[];
+  } catch (error) {
+    console.error('Failed to fetch blog posts:', error);
+    throw new Error('Failed to fetch blog posts.');
   }
 }
