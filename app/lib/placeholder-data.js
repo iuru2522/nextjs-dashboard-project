@@ -13,7 +13,7 @@ const users = [
 // INSERT INTO users (id, name, email, password) VALUES (uuid_generate_v4(), 'User', 'test@gmail.com', crypt('123456', gen_salt('bf')));
 
 
-// INSERT INTO users (id, name, email, password) VALUES (uuid_generate_v4(), 'New User', 'new_user@gmail.com', crypt('123456', gen_salt('bf')));
+//  INSERT INTO users (id, name, email, password) VALUES (uuid_generate_v4(), 'New User', 'new_user@gmail.com', crypt('123456', gen_salt('bf')));
 
 
 const customers = [
@@ -187,9 +187,33 @@ const revenue = [
   { month: 'Dec', revenue: 4800 },
 ];
 
+const blogPosts = [
+  {
+    id: '2578caf5-47f3-4580-9ddc-88bddbecc19f',
+    title: 'Introduction to JavaScript',
+    content: 'This is a placeholder content for the introduction to JavaScript blog post.',
+    author: 'John Doe',
+    date: new Date('2024-03-29'),
+    image_url: 'https://via.placeholder.com/300x200',
+  },
+  {
+    id: 'a2eab927-7e13-4a29-b6b8-1ec96b4bb005',
+    title: 'React Tips and Tricks',
+    content: 'This is a placeholder content for the React tips and tricks blog post.',
+    author: 'Jane Smith',
+    date: new Date('2024-03-28'),
+    image_url: 'https://via.placeholder.com/300x200',
+  },
+  
+];
+
+
+
+
 module.exports = {
   users,
   customers,
   invoices,
   revenue,
+  blogPosts
 };

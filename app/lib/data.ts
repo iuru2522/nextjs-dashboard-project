@@ -7,6 +7,8 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  BlogPost,
+  // FormattedBlogPosts,
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
@@ -237,6 +239,9 @@ export async function fetchFilteredCustomers(query: string) {
   }
 }
 
+
+
+
 export async function getUser(email: string) {
   // noStore();
  
@@ -260,3 +265,40 @@ export async function getUsers() {
     throw new Error('Failed to fetch users.');
   }
 }
+
+
+export async function getBlogPosts() {
+  noStore();
+  try {
+    const blogs = await sql`SELECT * FROM blog_posts`;
+    return blogs.rows as BlogPost[];
+  } catch (error) {
+    console.error('Failed to fetch blog posts:', error);
+    throw new Error('Failed to fetch blog posts.');
+  }
+}
+
+
+// export async function fetchFilteredBlogPosts(){
+//   noStore()
+//   try{
+
+//     const data = await sql<BlogPost>`
+//     SELECT
+//       id,
+//       title,
+//       content,
+//       author,
+//       date,
+//       image_url,
+//     FROM blog_posts
+//     ORDER BY title ASC
+//   `;
+
+//   const blogposts = data.rows;
+//   return blogposts;
+//   }catch (error){
+//     console.log('Failed to fetch BlogPosts:', error);
+//     throw new Error('Failed to fetch blog posts.')
+//   }
+// }
