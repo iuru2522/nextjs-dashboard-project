@@ -52,16 +52,18 @@
 import Image from 'next/image';
 import Link from 'next/link'; // Import Link from next
 
-import { lusitana } from '@/app/ui/fonts';
+// import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
 import { BlogPost } from '@/app/lib/definitions';
 
 export default function BlogPosts({ blogPosts }: { blogPosts: BlogPost[] }) {
   return (
     <div className="w-full">
-      <h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>
+      {/* <h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>
         Blog Posts
-      </h1>
+      </h1> */}
+
+      <h1>Blog Posts</h1>
       <Search placeholder="Search blog posts..." />
       <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {blogPosts?.map((post) => (

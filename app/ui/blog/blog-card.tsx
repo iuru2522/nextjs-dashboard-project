@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { lusitana } from '@/app/ui/fonts';
 import { BlogPost } from '@/app/lib/definitions';
+import React from 'react';
 
 export default function SingleBlogPost({ blogPosts }: { blogPosts: BlogPost }) {
   return (
