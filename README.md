@@ -24,4 +24,8 @@ npm install
 npm run dev
 ```
 2. Explore project codebase.
-3. Find existing username and password or add yours(optional).
+3. Test Credentials:
+```bash
+username: user@nextmail.com
+password: 123456
+```
