@@ -22,10 +22,9 @@ const links = [
     icon: DocumentDuplicateIcon,
   },
   { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
-  { name: 'Calendar', href: '/dashboard/calendar', icon: CalendarDaysIcon },
+  { name: 'Calendar', href: '/dashboard', icon: CalendarDaysIcon },
   { name: 'Users', href: '/dashboard/users', icon: UserIcon },
   { name: 'Blog', href: '/dashboard/blog', icon: NewspaperIcon },
-  
 ];
 
 export default function NavLinks() {
