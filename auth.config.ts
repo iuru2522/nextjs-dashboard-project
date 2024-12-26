@@ -17,5 +17,8 @@ export const authConfig = {
       return true;
     },
   },
-  providers: [], // Add providers with an empty array for now
+  providers: [],
+  //uncomment the following if running on localhost using docker
+  //trustHost: true,
+  //secret: process.env.NEXTAUTH_SECRET, 
 } satisfies NextAuthConfig;
