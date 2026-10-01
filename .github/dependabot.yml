@@ -8,10 +8,25 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
-    allow:
-      - dependency-type: "all"
+      interval: "weekly"
+
+    groups:
+      all-updates:
+        applies-to: version-updates
+        patterns:
+          - "*"
+
     ignore:
-      - dependency-name: "*"
+      - dependency-name: "typescript"
+      # eslint-config-next plugins are not compatible with ESLint 10 yet
+      - dependency-name: "eslint"
         update-types: ["version-update:semver-major"]
-    open-pull-requests-limit: 10
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      actions-updates:
+        patterns:
+          - "*"
