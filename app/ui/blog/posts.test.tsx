@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import mockRouter from 'next-router-mock';
 import BlogPosts from './posts';
 
-import '@testing-library/jest-dom/extend-expect'; 
+import '@testing-library/jest-dom';
 
 
 // Mock next/navigation module
