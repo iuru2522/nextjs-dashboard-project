@@ -1,7 +1,7 @@
 'use client';
 
 import { CustomerField } from '@/app/lib/definitions';
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import Link from 'next/link';
 import {
   CheckIcon,
@@ -10,12 +10,12 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
-import { createInvoice } from '@/app/lib/actions';
+import { createInvoice, type State } from '@/app/lib/actions';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
-  const initialState = { message: null, errors: {} };
+  const initialState: State = { message: null, errors: {} };
 
-  const [state, dispatch] = useFormState(createInvoice, initialState);
+  const [state, dispatch] = useActionState(createInvoice, initialState);
 
   // console.log(state)
 
