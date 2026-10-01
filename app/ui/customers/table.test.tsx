@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import CustomersTable from './table';
 import { FormattedCustomersTable } from '@/app/lib/definitions';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 jest.mock('next/navigation', () => {
   return {

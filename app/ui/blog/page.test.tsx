@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import SingleBlogPost from './blog-card';
-import '@testing-library/jest-dom/extend-expect'; 
+import '@testing-library/jest-dom';
 
 import React from 'react';
 
