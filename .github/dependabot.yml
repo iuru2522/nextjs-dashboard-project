@@ -18,9 +18,9 @@ updates:
 
     ignore:
       - dependency-name: "typescript"
-      # eslint-config-next plugins are not compatible with ESLint 10 yet
+      # Keep ESLint below 10 until eslint-config-next plugins support it.
       - dependency-name: "eslint"
-        update-types: ["version-update:semver-major"]
+        versions: [">=10.0.0"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
