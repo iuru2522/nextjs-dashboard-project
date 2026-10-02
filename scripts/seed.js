@@ -4,7 +4,6 @@ const {
   customers,
   revenue,
   users,
-  seedBlogPost,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
